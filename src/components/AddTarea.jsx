@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-const AddTarea = () => {
+const AddTarea = ({onAdd}) => {
 
     const [texto,setTexto] = useState("")
     const [fecha,setFecha] = useState("")
@@ -18,6 +18,12 @@ const AddTarea = () => {
             alert("Por favor ingresa la fecha de la tarea")
             return
         }
+
+        onAdd({texto, fecha, terminada})
+
+        setTexto("")
+        setFecha("")
+        setTerminada(false)
     }
 
     return (
